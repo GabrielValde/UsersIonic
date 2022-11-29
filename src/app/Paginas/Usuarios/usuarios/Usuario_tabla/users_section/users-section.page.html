@@ -1,0 +1,35 @@
+
+  <ion-header >
+  <ion-toolbar class="w-full flex justify-center" >    
+    <ion-title class="inline-block">Usuarios</ion-title>
+    <ion-icon routerLink="/usuarios/users-section/create" name="add-circle" class="w-9 h-9 inline-block cursor-pointer" title="Agregar usuario" ></ion-icon>
+  </ion-toolbar>
+</ion-header>
+<ion-router-outlet id="usuario-content" class="text-black h-auto block">
+<ion-content contentID="usuario-content">
+
+<ion-list>
+  <ion-item *ngFor="let persona of Personas">
+    <ion-avatar slot="start" [routerLink]="'/usuarios/users-section/'+ persona.id" class="cursor-pointer">
+      <ion-img [src]="persona.image"></ion-img>
+    </ion-avatar>  
+    <ion-label [routerLink]="'/usuarios/users-section/edit/'+ persona.id" class="cursor-pointer">{{persona.name}}</ion-label>  
+    <ion-label [routerLink]="'/usuarios/users-section/edit/'+ persona.id" class="cursor-pointer">{{persona.birthday}}</ion-label>
+    <ion-label [routerLink]="'/usuarios/users-section/edit/'+ persona.id" class="cursor-pointer">{{persona.email}}</ion-label>
+    <ion-icon name="trash" color="red" (click)="Borrar(persona.id,persona.name)" class="cursor-pointer" title="Eliminar usuario"></ion-icon>
+  </ion-item>
+</ion-list>
+<ion-footer class="flex justify-center">
+  <a *ngIf="Cant_atras!=-1" routerLink="/usuarios/users-section" [queryParams]="{page:Cant_atras}" 
+  class="text-white bg-blue-900 font-bold font-sans rounded p-2 m-1 "
+  >{{"<"}} </a>
+
+  <a *ngFor="let pag of Cantidad" routerLink="/usuarios/users-section" routerLinkActive="['bg-red-700']" [queryParams]="{page:pag}" 
+    class="text-white bg-blue-700 font-bold font-sans rounded p-2 m-1 shad">{{pag}}</a>
+  
+    <a *ngIf="Cant_siguiente!=-1" routerLink="/usuarios/users-section" [queryParams]="{page:Cant_siguiente}" 
+  class="text-white bg-blue-900 font-bold font-sans rounded p-2 m-1"
+  >{{">"}} </a>
+</ion-footer>
+</ion-content>
+</ion-router-outlet>

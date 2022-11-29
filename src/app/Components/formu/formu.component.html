@@ -1,0 +1,29 @@
+<form action="" [formGroup]="Formulario" (ngSubmit)="Enviar_info()">
+<ion-list >
+  <div class="flex flex-wrap">
+    <ion-item class="w-1/2">
+      <ion-label  position="floating" class="text-blue-900">Nombre</ion-label>
+      <ion-input type="text" formControlName="name" (ionBlur)="Verificar('name','Nombre')" > </ion-input>
+    </ion-item>
+    <ion-item class="w-1/2">
+      <ion-label  position="floating" class="text-blue-900">Email</ion-label>
+      <ion-input (ionBlur)="Verificar('email','Email')" formControlName="email"  type="email"  name="email"> </ion-input>
+    </ion-item>
+  </div>
+  <div class="flex flex-wrap">
+    <ion-item class="w-1/2">
+      <ion-label  position="floating" class="text-blue-900">Imagen</ion-label>
+      <ion-input   (ionBlur)="Verificar('image','Imagen')" type="url"  name="image" formControlName="image" > </ion-input>
+    </ion-item>
+      <ion-item class="w-1/2">
+        <ion-label  position="floating" class="text-blue-900">Contraseña</ion-label>
+        <ion-input (ionBlur)="Verificar('password','Contraseña')" type="password"  name="password" formControlName="password"> </ion-input>
+      </ion-item>
+  </div>
+  <ion-item >
+    <ion-label  position="stacked" class="text-blue-900">Cumpleaños</ion-label>
+    <ion-datetime (ionBlur)="Verificar('birthday','Cumpleaños')" presentation="date" formControlName="birthday" name="birthday"></ion-datetime>
+  </ion-item>
+  </ion-list>
+  <ion-button type="summit">Terminar</ion-button>
+</form>

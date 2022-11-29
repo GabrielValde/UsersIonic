@@ -1,0 +1,18 @@
+<ion-content >
+    <section style="display: flex; width:100%; justify-content: center; height: 100vh; align-items: center;">
+    <form action="" style="width: 400px; height: 500px;" (ngSubmit)="Logear(User,password)">
+    <ion-title>Bienvenido</ion-title>
+    <ion-list>
+        <ion-item>
+            <ion-label  position="floating">Usuario</ion-label>
+            <ion-input   type="text" #User [(ngModel)]="user" name="user"> </ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label  position="floating">Contraseña</ion-label>
+            <ion-input type="password" #password [(ngModel)]="contrase" name="contrase"> </ion-input>
+        </ion-item>
+        <ion-button type="summit">Iniciar</ion-button>
+    </ion-list>
+    </form>
+</section>
+</ion-content>
